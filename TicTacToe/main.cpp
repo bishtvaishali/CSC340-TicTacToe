@@ -31,18 +31,12 @@ bool isWon(char player,  char board[][3])
     {
         char init = board[i][0];
         int rowCount = 0;
-       // cout <<"Rowloop\n";
         for(int j = 1; j<= 2; j++)
         {
-            //cout << "init"<<init;
-            
-            //cout <<"compare \n" << board[i][j];
-            
             if(board[i][j] == init && !isblank(board[i][j])&& !isblank(init))
             {
                 rowCount++;
             }
-            //   cout<< "[" << i <<"]" << "[" << j << "]" <<endl;
         }
         if(rowCount  == 2 ) {
             return true;
@@ -53,21 +47,13 @@ bool isWon(char player,  char board[][3])
     for(int i = 0; i<= 2; i++)
     {
         char init = board[0][i];
-        //cout <<"Columnloop\n";
         int countCol = 0;
         for(int j = 1; j<= 2; j++)
         {
-            //   cout << "init char:"<< init << board[j][i]<<endl;
-            
-            //            cout <<" \n compare : " << board[j][i];
-            //            cout <<" \n compare int : " << j;
-            //            cout <<" \n compare int col: " << i<<endl;
-            
             if(!isblank(board[j][i])&& !isblank(init) && board[j][i] == init)
             {
                 countCol++;
             }
-          //  cout<< "[" << j <<"]" << "[" << i << "]" <<endl;
         }
         if(countCol  == 2 ) {
             return true;
@@ -80,13 +66,11 @@ bool isWon(char player,  char board[][3])
     for(int i = 1; i<= 2; i++)
     {
         char init = board[0][0];
-        //cout <<"Diagonalloop\n";
         int countDiag1 = 0;
         if(!isblank(board[i][i])&& !isblank(init) && board[i][i] == init)
         {
             countDiag1++;
         }
-        // cout<< "[" << i <<"]" << "[" << i << "]" <<endl;
     }
     if(countDiag1  == 2 )
     {
@@ -96,7 +80,6 @@ bool isWon(char player,  char board[][3])
     //Diagonal right to left
     int countDiag2 = 0;
     int col = 2;
-    //cout <<"Diagonalloop Right to Left\n";
     char init = board[0][col];
     
     for(int i = 1; i<= 2; i++)
@@ -104,9 +87,8 @@ bool isWon(char player,  char board[][3])
         if(!isblank(board[i][col-i])&& !isblank(init) && board[i][col-i] == init)
         {
             countDiag2++;
-            //cout <<   "Count"  << countDiag2;
         }
-      //  cout<< "[" << i <<"]" << "[" << col-i << "]" <<endl;
+
     }
     if(countDiag2 == 2 )
     {
@@ -119,16 +101,16 @@ bool isWon(char player,  char board[][3])
 
 void displayBoard(char board[][3])
 {
-    cout << "   -------------" << endl;
+    cout << " --------------" << endl;
     
     cout <<   " | " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " | " << endl;
-    cout << "   -------------" << endl;
+    cout << " --------------" << endl;
     
     cout <<   " | " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " | " << endl;
-    cout << "   -------------" << endl;
+    cout << " --------------" << endl;
     
     cout <<   " | " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " | " << endl;
-    cout << "   -------------" << endl;
+    cout << " --------------" << endl;
     
 }
 
